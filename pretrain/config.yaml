@@ -1,0 +1,78 @@
+dataloaders:
+  train:
+    augment:
+      if_jrr: false
+      name: TrainAugment
+      rotate_cmd: zxy10
+      translate_delta: 1.0
+    collate:
+      name: MetricCollate
+    dataset: /nas/slam/datasets/GAPR/dataset/benchmark/train
+    num_workers: 4
+    sampler:
+      batch_expansion_rate: 1.4
+      batch_size: 16
+      batch_size_limit: 32
+      max_batches: null
+      name: HeteroTripletSample
+dist:
+  backend: nccl
+  find_unused_parameters: false
+method:
+  loss:
+    batch_loss:
+      margin: 1.0
+      style: hard
+    name: GAPRLoss
+    overlap_loss:
+      corr_dist: 2.0
+    overlap_loss_scale: 1.0
+    point_loss:
+      corr_dist: 2.0
+      margin: 10
+      neg_dist: 20.0
+      pos_dist: 2.1
+      sample_num: 64
+      style: soft
+    point_loss_scale: 0.5
+  model:
+    debug: false
+    meangem:
+      eps: 1.0e-06
+      p: 3.0
+    minkfpn:
+      conv0_kernel_size: 5
+      in_channels: 1
+      layers:
+      - 1
+      - 1
+      - 1
+      num_top_down: 1
+      out_channels: 256
+      planes:
+      - 32
+      - 64
+      - 64
+      quant_size: 0.6
+    name: GAPR
+    pctrans:
+      attn_drop: 0.0
+      depth: 1
+      dim: 256
+      drop: 0.0
+      drop_path_rate: 0.0
+      init_values: null
+      mlp_ratio: 4
+      num_heads: 2
+      qkv_bias: true
+results:
+  logs: null
+  weights: /home/jieyr/code/ppr/results/weights/Ablation
+train:
+  batch_expansion_th: 0.7
+  epochs: 40
+  lr: 0.001
+  scheduler_milestones:
+  - 15
+  - 30
+  weight_decay: 0.001
