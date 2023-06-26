@@ -29,7 +29,7 @@ class PCTrans(nn.Module):
                 mlp_ratio=mlp_ratio,
                 qkv_bias=qkv_bias,
                 init_values=init_values,
-                drop=drop,
+                proj_drop=drop,
                 attn_drop=attn_drop,
                 drop_path=dpr[i],
                 norm_layer=partial(nn.LayerNorm, eps=1e-6),
