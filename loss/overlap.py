@@ -61,7 +61,7 @@ class OverlapLoss(BaseLoss):
 
     def print_stats(self, epoch:int, phase:str, writer:SummaryWriter, stats:Dict[str, Any]):
         print("OverlapLoss: %.3f" % (stats["loss"]))
-        print("Inpair: %.3f, %.3f, %.3f |  Nopair: %.3f, %.3f, %.3f | fitness: %.3f" % (
+        print("Overlap: %.3f, %.3f, %.3f | Non-overlap: %.3f, %.3f, %.3f | Fitness: %.3f" % (
             stats["inpair_min"], stats["inpair_mean"], stats["inpair_max"], 
             stats["nopair_min"], stats["nopair_mean"], stats["nopair_max"],
             stats["fitness"] 

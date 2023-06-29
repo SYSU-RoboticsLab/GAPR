@@ -86,10 +86,10 @@ class BatchTripletLoss(BaseLoss):
         return loss, stats
 
     def print_stats(self, epoch:int, phase:str, writer:SummaryWriter, stats:Dict[str, Any]):
-        print("BatchTripletLoss: loss=%.3f, norm=%.3f, all/non_zero=%.1f/%.1f"%(
+        print("TripletLoss: %.3f, Norm: %.3f, All/Non-zero: %.1f/%.1f"%(
             stats["loss"], stats["norm"], stats["triplet_num"], stats["non_zero_triplet_num"]
         ))
-        print("L2D pos=%.3f,%.3f,%.3f | neg=%.3f,%.3f,%.3f"%(
+        print("Positive: %.3f, %.3f, %.3f | Negative: %.3f, %.3f, %.3f (min, avg, max)"%(
             stats["min_pos_dist"], stats["mean_pos_dist"], stats["max_pos_dist"],
             stats["min_neg_dist"], stats["mean_neg_dist"], stats["max_neg_dist"],
         ))

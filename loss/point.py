@@ -125,7 +125,7 @@ class PointTripletLoss(BaseLoss):
     def print_stats(self, epoch:int, phase:str, writer:SummaryWriter, stats:Dict[str, Any]):
         print("PointTripletLoss: %.3f" % (stats["loss"]))
         print(
-            "pos: %.3f, %.3f, %.3f | neg: %.3f, %.3f, %.3f | triplet: %.1f/%.1f | fitness:%.3f" % 
+            "Positive: %.3f, %.3f, %.3f | Negative: %.3f, %.3f, %.3f | Triplet: %.1f/%.1f | Fitness:%.3f" % 
             (
                 stats["pos_min"], stats["pos_mean"] ,stats["pos_max"], 
                 stats["neg_min"], stats["neg_mean"] ,stats["neg_max"],
