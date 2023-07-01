@@ -1,1 +1,1 @@
-export PYTHONPATH=$PYTHONPATH:/home/jieyr/code/GAPR
+export PYTHONPATH=$PYTHONPATH:/home/jieyr/Codes/GAPR

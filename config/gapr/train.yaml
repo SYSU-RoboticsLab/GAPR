@@ -78,6 +78,5 @@ dist:
   find_unused_parameters: no
 
 results:
-  weights: null
-  # weights: /home/jieyr/code/ppr/results/weights/GAPR
-  logs:    null
+  weights: results/weights
+  logs:    null # no used

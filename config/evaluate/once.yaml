@@ -9,7 +9,7 @@ dataloaders:
       translate_delta: 0.0
       if_jrr: no
     sampler:
-      name: "BatchSample"
+      name: BatchSample
       batch_size: 1
       batch_size_limit: null
       batch_expansion_rate: null

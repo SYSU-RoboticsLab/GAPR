@@ -128,8 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# result
-results/
+# results of weights and evaluation
+results/evaluate/20*
+results/weights/20*
 
 # .vscode
 *.vscode/
