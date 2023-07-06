@@ -1,6 +1,6 @@
 dataloaders: 
   evaluate:
-    dataset: /nas/slam/datasets/GAPR/dataset/1210-1138/evaluate
+    dataset: /nas/slam/datasets/GAPR/dataset/benchmark/evaluate
     collate: 
       name: MetricCollate
     augment:
