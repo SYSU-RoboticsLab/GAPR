@@ -219,7 +219,7 @@ class LPRDataset(Dataset):
             
             o3d.visualization.draw_geometries(
                 [pcda, pcdp], 
-                window_name="left:gorund, right: aerial"
+                window_name="left: gorund, right: aerial"
             )
             
 
