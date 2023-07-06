@@ -25,7 +25,7 @@ class PointTripletLoss(BaseLoss):
     def __init__(self, margin:float, style:str, corr_dist:float, sample_num:int, pos_dist:float, neg_dist:float):
         super().__init__()
         assert style in ["soft", "hard"]
-        print("PointTripletLoss: margin={}".format(margin))
+        print("PointTripletLoss: margin=%.1f, style=%s" % (margin, style))
         self.margin     = margin
         self.style      = style
         self.corr_dist  = corr_dist

@@ -39,7 +39,7 @@ def broadcast_batch_idx(
     else:
         pass
 
-    # board caset num_size
+    # broadcast num_size
     dist.broadcast(num_size, gen_rank)
     # print("rank {} num_size = {}".format(rank, num_size))
 

@@ -21,7 +21,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 def parse_opt()->dict:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--yaml",       type=str, default="config/train.yaml")
+    parser.add_argument("--yaml",       type=str, required=True)
     parser.add_argument("--local_rank", type=int, required=True)
     opt = parser.parse_args()
     opt = vars(opt)
@@ -73,7 +73,7 @@ def main(**kw):
     # visualize len of phases database
     if local_rank == 0:
         for phase in phases:
-            print("Dataloder: {} set len = ".format(phase), len(dataloaders[phase].dataset))
+            print("Dataloder: {} set len = {}".format(phase, len(dataloaders[phase].dataset)))
     
     itera = None
     if local_rank == 0: itera = tqdm(range(kw["train"]["epochs"]))

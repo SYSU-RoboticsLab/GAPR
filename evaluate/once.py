@@ -81,7 +81,7 @@ def main(**kw):
         plt.ylabel("precision")
         plt.legend(list(rp))
         if savepath is not None: plt.savefig(os.path.join(savepath, "recall-precision.png"))
-        else: plt.close()
+        plt.close()
 
 
     # average topN-recall
@@ -108,7 +108,7 @@ def main(**kw):
             plt.ylabel("Recall")
             plt.legend(list(tn))
             if savepath is not None: plt.savefig(os.path.join(savepath, "topN-recall.png"))
-            else: plt.close()
+            plt.close()
 
             stats = "Top1-Recall: "
             for e in list(tn.keys()): stats += "%s:%.3f|" % (e, tn[e][0])

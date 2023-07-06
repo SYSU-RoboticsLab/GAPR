@@ -52,7 +52,7 @@ class BatchTripletLoss(BaseLoss):
     def __init__(self, margin:float, style:str):
         super().__init__()
         assert style in ["soft", "hard"]
-        print("HardTripletLoss: margin=%.3f"%(margin))
+        print("BatchTripletLoss: margin=%.1f, style=%s"%(margin, style))
         self.miner = TripletMiner()
         self.margin = margin
         self.style  = style

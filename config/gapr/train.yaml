@@ -1,5 +1,4 @@
 dataloaders: 
-  # phase train
   train:
     dataset: /nas/slam/datasets/GAPR/dataset/benchmark/train
     collate: 
@@ -44,11 +43,6 @@ method:
       eps: 0.000001
   loss: 
     name: GAPRLoss
-    # 20230513_095929, batch hard 1.0, point hard  2.7: 0.990 0.941 0.962 0.991
-    # 20230513_103903, batch hard 1.0, point soft 10.0: 0.994 0.947 0.964 0.993 ✅
-    # 20230513_112419, batch hard 1.0, point hard 10.0: 0.991 0.943 0.955 0.989
-    # 20230513_120323, batch soft 1.0, point hard 10.0: 0.988 0.938 0.945 0.986
-    # 20230513_131227, batch soft 1.0, point soft 10.0: 0.988 0.944 0.951 0.987
     batch_loss:
       margin: 1.0
       style: hard
@@ -61,17 +55,15 @@ method:
       neg_dist: 20.0
     overlap_loss:
       corr_dist: 2.0
-    # 0.5 > 1.0
     point_loss_scale: 0.5
-    # 1.0 > 0.1, 1.0 > 1.5
     overlap_loss_scale: 1.0
 
 train:
   lr: 0.001
   epochs: 40
   weight_decay: 0.001
-  batch_expansion_th: 0.7
-  scheduler_milestones: [15, 30]
+  batch_expansion_th: 0.7 # no used
+  scheduler_milestones: [15, 30] # no used
 
 dist:
   backend: nccl

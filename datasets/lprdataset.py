@@ -17,6 +17,7 @@ class LPRDataset(Dataset):
     def __init__(self, rootpath:str,):
         self.rootpath = rootpath
         assert os.path.exists(self.rootpath), "Cannot access rootpath {}".format(self.rootpath)
+        print("LPRDataset: {}".format(self.rootpath))
         # 0: ground, 1: aerial
         self.geneous_names = ["ground", "aerial"]
         self.Ng = len(self.geneous_names)
@@ -43,7 +44,7 @@ class LPRDataset(Dataset):
         self.pcs           = [np.load(os.path.join(self.rootpath, "items", "%06d"%ndx, "pointcloud.npy"))    for ndx in range(self.Nm)]
         self.positives     = [np.load(os.path.join(self.rootpath, "items", "%06d"%ndx, "positives.npy"))     for ndx in range(self.Nm)]
         self.non_negatives = [np.load(os.path.join(self.rootpath, "items", "%06d"%ndx, "non_negatives.npy")) for ndx in range(self.Nm)]
-
+        self.get_anchors()
 
     def __len__(self):
         return self.Nm
@@ -94,7 +95,7 @@ class LPRDataset(Dataset):
         if self.anchors is not None: return np.copy(self.anchors)
         print("LPRDataset: self.anchors is None, generating")
         anchors = []
-        for i in tqdm(self.get_indices()):
+        for i in self.get_indices():
             positives = self.get_positives(i)
             is_anchor = True
             for gid, gname in enumerate(self.geneous_names):
@@ -104,7 +105,6 @@ class LPRDataset(Dataset):
             if is_anchor: anchors.append(i)
 
         self.anchors = np.asarray(anchors)
-        print("LPRDataset: Found %d anchors" % len(anchors))
 
         for gid, gname in enumerate(self.get_geneous_names()):
             ganchors = np.intersect1d(

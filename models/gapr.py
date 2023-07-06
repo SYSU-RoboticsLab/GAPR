@@ -9,6 +9,7 @@ from models.utils.transformers.transgeo import PCTrans
 class GAPR(nn.Module):
     def __init__(self, minkfpn:Dict, pctrans:Dict, meangem:Dict, **kw):
         super(GAPR, self).__init__()
+        print("Model: GAPR")
         self.minkfpn = MinkFPN(**minkfpn)
         self.geneous_names = ["ground", "aerial"]
 

@@ -15,7 +15,7 @@ from loss.overlap import OverlapLoss
 class GAPRLoss(BaseLoss):
     def __init__(self, batch_loss:Dict, point_loss:Dict, overlap_loss:Dict, point_loss_scale:float, overlap_loss_scale:float):
         super().__init__()
-        print("GAPRLoss: point_loss_scale=%.2f attention_loss_scale=%.2f"%(point_loss_scale, overlap_loss_scale))
+        print("GAPRLoss: point_loss_scale=%.2f overlap_loss_scale=%.2f"%(point_loss_scale, overlap_loss_scale))
         self.batch_loss = BatchTripletLoss(**batch_loss)
         self.point_loss = PointTripletLoss(**point_loss)
         self.overlap_loss = OverlapLoss(**overlap_loss)

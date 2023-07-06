@@ -18,6 +18,7 @@ class HomoTripletSample(BaseSample):
         * dataset
         * max_batches
         """
+        print("Sampling Mechanism: HomoTripletSample")
         self.dataset = dataset
         self.max_batches = max_batches
         self.k = 2

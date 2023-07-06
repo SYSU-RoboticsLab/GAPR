@@ -10,6 +10,7 @@ class HeteroTripletSample(BaseSample):
         """
         # Sampling mechanism for heterogeneous data
         """
+        print("Sampling Mechanism: HeteroTripletSample")
         self.dataset = dataset
         self.max_batches = max_batches
         self.k = 2

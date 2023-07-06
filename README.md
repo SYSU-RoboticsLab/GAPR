@@ -9,7 +9,6 @@ In this paper, we propose a heterogeneous deep metric learning pipeline for grou
     <div align="center">
         <img src="media/description.png" width = 60% >
     </div>
-    <!-- <font color=#a0a0a0 size=2>An illustration of the ground and aerial point cloud-based place recognition task. The place recognition pipeline transforms point clouds from ground and aerial views into unified descriptors. The place retrieval is to search the database for the descriptors that match the queries.</font> -->
     <font>
     Task Illustration</font>
 </div>
@@ -24,8 +23,24 @@ In this paper, we propose a heterogeneous deep metric learning pipeline for grou
 
 
 ## Contributors
-[Yingrui Jie 揭英睿](https://github.com/jieyr3Rui), [Yilin Zhu 朱奕霖](https://github.com/inntoy), and
-[Hui Cheng 成慧](https://cse.sysu.edu.cn/content/2504) from [SYSU RAPID Lab](http://lab.sysu-robotics.com/).
+[Yingrui Jie 揭英睿](https://github.com/yingruijie), 
+[Yilin Zhu 朱奕霖](https://github.com/inntoy), and
+[Hui Cheng 成慧](https://cse.sysu.edu.cn/content/2504) from 
+[SYSU RAPID Lab](http://lab.sysu-robotics.com).
+
+## Citation
+```tex
+@ARTICLE{10173571,
+  author={Jie, Yingrui and Zhu, Yilin and Cheng, Hui},
+  journal={IEEE Robotics and Automation Letters}, 
+  title={Heterogeneous Deep Metric Learning for Ground and Aerial Point Cloud-Based Place Recognition}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-8},
+  doi={10.1109/LRA.2023.3292623}}
+```
+
 
 # Usage
 ## Environment
@@ -57,15 +72,15 @@ cd ..
 ```sh
 # install setuptools firstly to avoid some bugs
 pip install setuptools==58.0.4
-pip install tqdm open3d tensorboard pandas matplotlib pillow ptflops timm
+pip install tqdm open3d tensorboard pandas matplotlib pillow ptflops timm==0.9.2
 ```
 
 6. Download this repository.
 ```sh
-git clone git@github.com:SYSU-RoboticsLab/GAPR.git
+git clone https://github.com/SYSU-RoboticsLab/GAPR.git
 cd GAPR
 ```
-Please note that add the python path before running codes:
+Add the python path before running codes:
 ```sh
 export PYTHONPATH=$PYTHONPATH:/PATH_TO_CODE/GAPR
 ```
@@ -91,7 +106,7 @@ dataloaders:
 ```sh
 python evaluate/once.py --weights pretrain/GAPR.pth --yaml config/evaluate/once.yaml
 ```
-The `weights` is used to set the path of model weights.   
+Parameter `weights` is used to set the path of model weights. The results are saved at `results/evaluate/YYMMDD_HHMMSS`.
 ## Train
 1. Change the path of dataset in `config/gapr/train.yaml`.
 ```yaml
@@ -105,6 +120,7 @@ dataloaders:
 ```sh
 CUDA_VISIBLE_DEVICES=1,3 python -m torch.distributed.launch --nproc_per_node=2 train/train.py --yaml config/gapr/train.yaml
 ```
+The training weights are saved at `results/weights/YYMMDD_HHMMSS`.
 
 # Acknowledgement
 We acknowledge the authors of [MinkLoc3D](https://github.com/jac99/MinkLoc3D) for their excellent codebase which has been used as a starting point for this project.

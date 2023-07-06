@@ -9,6 +9,7 @@ class BatchSample(BaseSample):
     # Batch sampling for dataset
     """
     def __init__(self, dataset:LPRDataset, shuffle:bool, max_batches:int):
+        print("Sampling Mechanism: BatchSample")
         self.dataset = dataset
         self.max_batches = max_batches
         self.k = 1
