@@ -44,7 +44,7 @@ In this paper, we propose a heterogeneous deep metric learning pipeline for grou
 
 # Usage
 ## Environment
-This project has been tested on a system with Ubuntu 18.04. Main dependencies include: CUDA == 10.2; PyTorch == 1.9.1; MinkowskiEngine == 0.5.4; Opne3D == 0.15.2. Please set up the requirments as follows.
+This project has been tested on a system with Ubuntu 18.04. Main dependencies include: CUDA >= 10.2; PyTorch >= 1.9.1; MinkowskiEngine >= 0.5.4; Opne3D >= 0.15.2. Please set up the requirments as follows.
 1. Install [cuda-10.2](https://developer.nvidia.com/cuda-10.2-download-archive). 
 
 2. Create the anaconda environment.
@@ -52,12 +52,12 @@ This project has been tested on a system with Ubuntu 18.04. Main dependencies in
 conda create -n gapr python=3.8
 conda activate gapr
 ```
-3. Install [PyTorch](https://pytorch.org/).
+3. [PyTorch](https://pytorch.org/).
 ```sh
 pip install torch==1.9.1+cu102 torchvision==0.10.1+cu102 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
-4. Install [MinkowskiEngine](https://github.com/NVIDIA/MinkowskiEngine).
+4. [MinkowskiEngine](https://github.com/NVIDIA/MinkowskiEngine).
 ```sh
 conda install openblas-devel -c anaconda
 git clone https://github.com/NVIDIA/MinkowskiEngine.git
