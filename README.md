@@ -86,7 +86,7 @@ export PYTHONPATH=$PYTHONPATH:/PATH_TO_CODE/GAPR
 ```
 
 ## Dataset
-Please download our [benchmark dataset](https://1drv.ms/u/s!AmSRwVTuK0YFgjJJAa4yOwblSy8g?e=VQCYIH) and unpack the tar file.
+Please download our [benchmark dataset](https://pan.baidu.com/s/1TsxSNZVkGwpZjBM0eNXglw?pwd=zxx4) and unpack the tar file.
 Run the following command to check the dataset (`train` and `evaluate`).
 ```sh
 python datasets/lprdataset.py --dataset /PATH_TO_DATASET/benchmark/train
